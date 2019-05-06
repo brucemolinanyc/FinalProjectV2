@@ -30,14 +30,53 @@ import SiteWrapper from "./SiteWrapper.react";
 
 
 class Home extends React.Component {
-  state = {
-  
-  };
+    state = {
+      input: null,
+      offices: null,
+      officials: null,
+      specificOfficeName: null,
+      specificOfficialName: null
+  }
 
+  onChange = (e) => {
+    this.setState({input: e.target.value})
+  }
  
-  handleClick = () => {
-    console.log('clicked')
-  };
+  handleClick = (e) => {
+    const address_elements = this.state.input.split(" ")
+    const city = address_elements.slice(-3)[0]
+    const state = address_elements.slice(-2)[0]
+    const zipcode = address_elements.slice(-1)[0]
+
+    fetch(`http://127.0.0.1:5000/google/${city}/${state}/${zipcode}`, {
+        method: 'get',
+        mode: "cors",
+    })
+    .then(response => response.json())
+    .then(data => {
+        const offices_state = []
+        const officials_state = []
+        data.offices.map((el) => {
+            var i = 0
+            do {
+                i ++
+                offices_state.push(el.name)
+            } while(i < el.officialIndices.length);
+        })
+        data.officials.map((el) => {
+            officials_state.push(el.name)
+        })
+        
+        this.setState({
+        specificOfficeName: offices_state,
+        specificOfficialName: officials_state,
+        offices: data.offices,
+        officials: data.officials
+    })
+    
+    }
+    )
+}
 
   render() {
     return (
@@ -48,7 +87,7 @@ class Home extends React.Component {
 
           <Form.Group size="md" label="">
             <Form.InputGroup  >
-              <Form.Input placeholder="Enter your address here" />
+              <Form.Input onChange={this.onChange} placeholder="Enter your address here" />
               <Form.InputGroupAppend>
                 <Button
                   color="primary"
@@ -61,6 +100,8 @@ class Home extends React.Component {
             </Form.InputGroup>
           </Form.Group>
         </Page.Content>
+
+        {console.log(this.state)}
       
       </SiteWrapper>
     );
