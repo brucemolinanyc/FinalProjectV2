@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 import { LoginPage as TablerLoginPage } from "tabler-react";
 import './LoginPage.react.css'
 
-
+// https://tabler-react.com/form-elements - check here for a possible static registration page 
 class RegistrationPage extends React.Component{
   constructor(){
     super()

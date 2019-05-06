@@ -1,13 +1,15 @@
 // @flow
 
 import * as React from "react";
-import axios from "axios";
+import './HomePage.react.css'
 
 import {
   Page,
   Avatar,
   Icon,
   Grid,
+  Form,
+  Input,
   Card,
   Text,
   Table,
@@ -24,8 +26,8 @@ import {
 } from "tabler-react";
 
 import "tabler-react/dist/Tabler.css";
-
 import SiteWrapper from "./SiteWrapper.react";
+
 
 class Home extends React.Component {
   state = {
@@ -34,70 +36,32 @@ class Home extends React.Component {
 
  
   handleClick = () => {
+    console.log('clicked')
   };
 
   render() {
     return (
-      <SiteWrapper>
-        <Page.Content title="Dashboard">
-          <Grid.Row cards={true}>
-            <Grid.Col sm={6} lg={3}>
-              <StampCard
-                color="red"
-                icon="alert-circle"
-                header={
-                  <a href="#" onClick={this.handleClick}>
-                    30 <small>Orders</small>
-                  </a>
-                }
-                footer={"14 in progress"}
-              />
-            </Grid.Col>
-            <Grid.Col sm={6} lg={3}>
-              <StampCard
-                color="orange"
-                icon="box"
-                header={
-                  <a href="#">
-                    9 <small>Inventory Items</small>
-                  </a>
-                }
-                footer={"Running low"}
-              />
-            </Grid.Col>
-            <Grid.Col sm={6} lg={3}>
-              <StampCard
-                color="blue"
-                icon="users"
-                header={
-                  <a href="#">
-                    17 <small>Employees Available</small>
-                  </a>
-                }
-                footer={"6 unavailable"}
-              />
-            </Grid.Col>
-            <Grid.Col sm={6} lg={3}>
-              <StampCard
-                color="green"
-                icon="dollar-sign"
-                header={<a href="/relief">Relief Funds Status</a>}
-                footer={"Up-to-date"}
-              />
-            </Grid.Col>
+      <SiteWrapper className="sitewrapper">
+        <Page.Content className="content" title="">
+          <h1>Your Representatives</h1>
+          <p>Enter your address to <strong>find and contact</strong> your federal, state, county and local elected representatives</p>
 
-            <Grid.Col md={12}>
-              <Grid.Row>
-                
-              </Grid.Row>
-            </Grid.Col>
-          </Grid.Row>
-          <Grid.Row>
-            <Grid.Col width={12}>
-             
-            </Grid.Col>
-          </Grid.Row>
+          <Form.Group size="md" label="">
+            <Form.InputGroup  >
+              <Form.Input placeholder="Enter your address here" />
+              <Form.InputGroupAppend>
+                <Button
+                  color="primary"
+                  size="lg"
+                  onClick={this.handleClick}
+                >
+                  Go!
+                </Button>
+              </Form.InputGroupAppend>
+            </Form.InputGroup>
+          </Form.Group>
         </Page.Content>
+      
       </SiteWrapper>
     );
   }

@@ -1,0 +1,15 @@
+.content {
+    margin: auto;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+
+}
+
+.content h1 {
+    font-size: 52px
+}
+
+p {
+    font-size: 25px;
+}
