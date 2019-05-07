@@ -1,14 +1,12 @@
 import * as React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import HomePage from "./pages/HomePage.react";
 import LoginPage from "./pages/LoginPage.react";
-import RegistrationPage from "./pages/RegistrationPage"
-// import StoreCardsPage from "./pages/StoreCardsPage.react";
-// import Energy from "./pages/Energy.react";
-// import DisasterRelief from "./pages/DisasterRelief.react";
-// import OrderForm from "./pages/OrderForm.react";
-// import OrderConfirmation from "./pages/OrderConfirmation.react";
+import HomePage from "./pages/HomePage.react";
+import ProfilePage from "./pages/ProfilePage.react";
+import RegistrationPage from "./pages/RegistrationPage";
+import RepresentativeCardPage from "./pages/RepresentativeCardPage.react";
+import VoterStatusPage from "./pages/VoterStatusPage.react";
 
 import "tabler-react/dist/Tabler.css";
 
@@ -21,9 +19,10 @@ function App(props: Props): React.Node {
         <Switch>
           <Route path="/" component={LoginPage} exact={true} />
           <Route path="/home" component={HomePage} />
+          <Route path="/profile" component={ProfilePage} />
           <Route path="/register" component={RegistrationPage} />
-
-
+          <Route path="/representative/:name" component={RepresentativeCardPage} />
+          <Route path="/vote" component={VoterStatusPage} />
         </Switch>
       </Router>
     </React.StrictMode>

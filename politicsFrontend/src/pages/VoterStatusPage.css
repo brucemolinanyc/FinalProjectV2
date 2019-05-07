@@ -1,0 +1,61 @@
+::-webkit-input-placeholder {
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px
+}
+ 
+ :-moz-placeholder { /* Firefox 18- */
+    text-align: center;  
+    font-weight: bold;
+    font-size: 20px
+
+ }
+ 
+ ::-moz-placeholder {  /* Firefox 19+ */
+    text-align: center;  
+    font-weight: bold;
+    font-size: 20px
+
+ }
+ 
+ :-ms-input-placeholder {  
+    text-align: center;
+    font-weight: bold; 
+    font-size: 20px
+ }
+
+.voterForm{
+    width: 85%;
+    height: 500px;
+    margin: auto;
+    margin-top: 50px;
+    padding: 30px;
+    background-color: lightblue;
+    border-radius: 25px;
+    text-align: center;
+    display:block;
+}
+
+.formGroupA .A {
+    width: 45%;
+    border-radius: 15px;
+    height: 50px;
+    align-content: flex;
+    margin: 20px;
+}
+
+.formGroupB #address {
+    width: 93%;
+    border-radius: 15px;
+    height: 50px;
+    align-content: flex;
+    margin: 20px;
+}
+
+.formGroupC input {
+    width: 25%;
+    border-radius: 15px;
+    height: 50px;
+    align-content: flex;
+    margin: 20px;
+}

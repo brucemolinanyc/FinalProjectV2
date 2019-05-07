@@ -42,36 +42,22 @@ type navItem = {|
 const navBarItems: Array<navItem> = [
   {
     value: "Home",
-    to: "/",
+    to: "/home",
     icon: "home",
     LinkComponent: withRouter(NavLink),
     useExact: true
   },
   {
-    value: "Store",
-    to: "/store",
-    icon: "box",
+    value: "Voter Registration Status",
+    to: "/vote",
+    icon: "check",
     LinkComponent: withRouter(NavLink),
     useExact: true
   },
   {
-    value: "Energy Page",
-    to: "/energy",
-    icon: "box",
-    LinkComponent: withRouter(NavLink),
-    useExact: true
-  },
-  {
-    value: "Relief Page",
-    to: "/relief",
-    icon: "box",
-    LinkComponent: withRouter(NavLink),
-    useExact: true
-  },
-  {
-    value: "Order Form",
-    to: "/orderconfirmation",
-    icon: "box",
+    value: "My Profile",
+    to: "/profile",
+    icon: "aperture",
     LinkComponent: withRouter(NavLink),
     useExact: true
   }
@@ -98,7 +84,7 @@ class SiteWrapper extends React.Component {
     return (
       <Site.Wrapper
         headerProps={{
-          alt: "TBD",
+          alt: "PoliDex",
           navItems: <Nav.Item type="div" className="d-none d-md-flex" />,
           accountDropdown: accountDropdownProps
         }}
