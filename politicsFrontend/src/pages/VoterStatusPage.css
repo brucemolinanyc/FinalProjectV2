@@ -37,7 +37,15 @@
 }
 
 .formGroupA .A {
-    width: 45%;
+    width: 30%;
+    border-radius: 15px;
+    height: 50px;
+    align-content: flex;
+    margin: 20px;
+}
+
+.formGroupA select{
+    width: 25%;
     border-radius: 15px;
     height: 50px;
     align-content: flex;
@@ -52,10 +60,25 @@
     margin: 20px;
 }
 
-.formGroupC input {
+.formGroupC input{
     width: 25%;
     border-radius: 15px;
     height: 50px;
     align-content: flex;
     margin: 20px;
+}
+
+button {
+    border-radius: 15px;
+    font-weight: bold;
+    font-size: 30px;
+    background-color: lightcoral
+}
+
+select {
+    height: 50px;
+    border-radius: 15px;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
 }
