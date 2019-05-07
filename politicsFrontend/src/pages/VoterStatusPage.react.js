@@ -8,11 +8,58 @@ import {options, states, months, dates, years} from './Utilities';
 class VoterStatusPage extends React.Component{
     constructor(){
         super()
+
+        this.state = {
+            FirstName: null,
+            LastName: null,
+            Gender: null,
+            City: null,
+            State: null,
+            Zipcode: null,
+            Month: null,
+            Day: null,
+            Year: null
+        }
     }
+
 
     onSubmit = (e) => {
         e.preventDefault()
         console.log('submit')
+    }
+
+    onChange = (e) => {
+        this.setState({ [e.target.name] : e.target.value })
+    }
+
+    genderChange = (e) => {
+        let element = document.getElementById("Gender")
+        let gender = element.options[element.selectedIndex].text            
+        this.setState({ Gender : gender})
+    }
+
+    stateChange = (e) => {
+        let element = document.getElementById("State")
+        let state = element.options[element.selectedIndex].text          
+        this.setState({ State : state})
+    }
+
+    monthChange = (e) => {
+        let element = document.getElementById("Month")
+        let month = element.options[element.selectedIndex].text        
+        this.setState({ Month : month})
+    }
+
+    dayChange = (e) => {
+        let element = document.getElementById("Day")
+        let day = element.options[element.selectedIndex].text
+        this.setState({ Day : day})
+    }
+
+    yearChange = (e) => {
+        let element = document.getElementById("Year")
+        let year = element.options[element.selectedIndex].text
+        this.setState({ Year : year})
     }
 
     render(){
@@ -24,11 +71,11 @@ class VoterStatusPage extends React.Component{
                     <h1>Check Your Voter Registration Status</h1>   
 
                     <div className="formGroupA">
-                        <input className="A" placeholder="First Name"  name="FirstName" />
-                        <input className="A" placeholder="Last Name"  name="LastName" />
+                        <input className="A" placeholder="First Name"  name="FirstName" onChange={this.onChange} />
+                        <input className="A" placeholder="Last Name"  name="LastName" onChange={this.onChange}/>
                     
-                        <select id="Gender" placeholder="Gender"  name="Gender">
-                        <option disabled selected value> -- Gender -- </option> 
+                        <select id="Gender" placeholder="Gender"  name="Gender" onChange={this.genderChange}>
+                        <option disabled selected value> Gender </option> 
                         <option value="M">Male</option>
                         <option value="F">Female</option>
                         </select>
@@ -40,9 +87,11 @@ class VoterStatusPage extends React.Component{
                     </div>
 
                     <div className="formGroupC">
-                        <input id="city" placeholder="City"  name="City" />
-                            <select id="state" placeholder="State" name="State">
-                                <option disabled selected value> -- State -- </option>                                                   
+
+                        <input id="city" placeholder="City"  name="City" onChange={this.onChange} />
+                           
+                        <select id="State" placeholder="State" name="State" onChange={this.stateChange}>
+                                <option disabled selected value>  State </option>                                                   
                                 <option value='Alabama'>Alabama</option>
                                 <option value='Alaska'>Alaska</option>
                                 <option value='Arizona'>Arizona</option>
@@ -95,12 +144,12 @@ class VoterStatusPage extends React.Component{
                                 <option value='Wisconsin'> Wisconsin </option>
                                 <option value='Wyoming'> Wyoming </option>               
                             </select>
-                        <input id="zip" placeholder="Zipcode"  name="Zipcode" />
+                        <input id="zip" placeholder="Zipcode"  name="Zipcode" onChange={this.onChange}/>
                     </div>
 
                     <div className="formGroupD">
-                        <select id="Month" placeholder="Month"  name="Month">
-                            <option disabled selected value> -- Month -- </option> 
+                        <select id="Month" placeholder="Month"  name="Month" onChange={this.monthChange}>
+                            <option disabled selected value>  Month  </option> 
                             <option value='01'>01</option>
                             <option value='02'>02</option>
                             <option value='03'>03</option>
@@ -110,13 +159,13 @@ class VoterStatusPage extends React.Component{
                             <option value='07'>07</option>
                             <option value='08'>08</option>
                             <option value='09'>09</option>
-                            <option value= '10'>10</option>
-                            <option value= '11'>11</option>
-                            <option value= '12'>12</option>
+                            <option value='10'>10</option>
+                            <option value='11'>11</option>
+                            <option value='12'>12</option>
                         </select>
 
-                        <select id="Date" placeholder="Date"  name="Date">
-                            <option disabled selected value> -- Date -- </option> 
+                        <select id="Day" placeholder="Day"  name="Day" onChange={this.dayChange}>
+                            <option disabled selected value>  Day </option> 
                             <option value='01'>01</option>
                             <option value='02'>02</option>
                             <option value='03'>03</option>
@@ -150,8 +199,8 @@ class VoterStatusPage extends React.Component{
                             <option value= '31'>31</option>
                         </select>
 
-                        <select id="Year" placeholder="Year"  name="Year">
-                            <option disabled selected value> -- Year -- </option> 
+                        <select id="Year" placeholder="Year"  name="Year" onChange={this.yearChange}>
+                            <option disabled selected value>  Year </option> 
                             <option value= '2018'>2018</option>
                             <option value= '2017'>2017</option>
                             <option value= '2016'>2016</option>
@@ -241,12 +290,9 @@ class VoterStatusPage extends React.Component{
                             <option value= '1932'>1932</option>
                             <option value= '1931'>1931</option>
                             <option value= '1930'>1930</option>
-
-
-
                         </select>
                     </div>
-
+                    {console.log(this.state)}
                     <div className="button">
                         <button>Look up my status</button>
                     </div>
