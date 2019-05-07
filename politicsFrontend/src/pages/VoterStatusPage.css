@@ -105,3 +105,27 @@ select {
     text-align-last:center;
 
 }
+
+.registrationResult{
+    color: black;
+    width: 85%;
+    height: 200px;
+    margin: auto;
+    margin-top: 50px;
+    padding: 30px;
+    border-radius: 25px;
+    text-align: center;
+    display:block;
+}
+
+.success{
+    background-color: lightgreen;
+    border-radius: 25px;
+    padding: 30px;
+}
+
+.failure{
+    background-color: lightgoldenrodyellow;
+    border-radius: 25px;
+    padding: 30px;
+}
