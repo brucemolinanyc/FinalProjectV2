@@ -1,7 +1,7 @@
 ::-webkit-input-placeholder {
     text-align: center;
     font-weight: bold;
-    font-size: 20px
+    font-size: 20px;
 }
  
  :-moz-placeholder { /* Firefox 18- */
@@ -26,7 +26,7 @@
 
 .voterForm{
     width: 85%;
-    height: 500px;
+    height: 600px;
     margin: auto;
     margin-top: 50px;
     padding: 30px;
@@ -42,22 +42,36 @@
     height: 50px;
     align-content: flex;
     margin: 20px;
+    color: #495058
+
 }
 
 .formGroupA select{
     width: 25%;
+    border-radius: 25px;
+    text-align: center;
+    height: 50px;
+    align-content: flex;
+    margin: 20px;
+    color: #495058
+}
+
+.formGroupB #address {
+    width: 91%;
     border-radius: 15px;
     height: 50px;
     align-content: flex;
     margin: 20px;
 }
 
-.formGroupB #address {
-    width: 93%;
+.formGroupD select{
+    width: 15%;
     border-radius: 15px;
     height: 50px;
     align-content: flex;
     margin: 20px;
+    color: #495058
+
 }
 
 .formGroupC input{
@@ -66,13 +80,16 @@
     height: 50px;
     align-content: flex;
     margin: 20px;
+    color: #495058
+
 }
 
 button {
+    margin-top: 20px;
     border-radius: 15px;
     font-weight: bold;
     font-size: 30px;
-    background-color: lightcoral
+    background-color: lightseagreen
 }
 
 select {
@@ -81,4 +98,6 @@ select {
     font-weight: bold;
     font-size: 20px;
     text-align: center;
+    color: #495058
+
 }
