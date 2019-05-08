@@ -55,8 +55,11 @@ class Voters(ORM):
 
     @classmethod
     def get_voter(cls, FirstName, LastName, formattedGender, formattedBirthdate, ZipCode):
+        print('1')
         voters = Voters.select_many_where("WHERE FirstName=? AND LastName=? AND Gender=?", (FirstName, LastName, formattedGender) )
+        print('2')
         voter = list(filter(lambda x : (x.Zip5 == ZipCode) and (x.DOB == formattedBirthdate), voters))
+        print('3')
         print(voter)
         
         if voter:
