@@ -3,11 +3,15 @@
     text-align: center;
     height: 100%;
     width: 100%;
-
 }
+
 
 Table{
     font-size: 20px
+}
+
+.input{
+    width: 70%
 }
 
 .content h1 {
@@ -17,3 +21,5 @@ Table{
 p {
     font-size: 25px;
 }
+
+

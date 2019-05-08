@@ -120,21 +120,20 @@ class Home extends React.Component {
           <h1>Your Representatives</h1>
           <p>Enter your address to <strong>find and contact</strong> your federal, state, county and local elected representatives</p>
 
-          <Form.Group size="md" label="">
-            <Form.InputGroup  >
-              <Form.Input onChange={this.onChange} placeholder="Enter your address here" />
-              <Form.InputGroupAppend>
-                <Button
-                  color="primary"
-                  size="lg"
-                  onClick={this.handleClick}
-                >
-                  Go!
-                </Button>
-              </Form.InputGroupAppend>
-            </Form.InputGroup>
-          </Form.Group>
-
+    <Form.Group label="Input Group">
+  <Form.InputGroup>
+    <Form.Input onChange={this.onChange} placeholder="Enter your address" />
+    <Form.InputGroupAppend>
+      <Button
+        RootComponent="a"
+        color="primary"
+        onClick={this.handleClick}
+      >
+        Go!
+      </Button>
+    </Form.InputGroupAppend>
+  </Form.InputGroup>
+</Form.Group>
 
           <Grid.Row>
             <Grid.Col lg={12}>
