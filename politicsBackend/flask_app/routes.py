@@ -51,7 +51,7 @@ def homepage():
 def search(FirstName, LastName, formattedGender, formattedBirthdate, ZipCode):
     voter = Voters.get_voter(FirstName, LastName, formattedGender, formattedBirthdate, ZipCode)
     if voter:
-        voterName = f'{voter.FirstName} {voter.LastName}'
+        voterName = "{} {}".format(voter.FirstName, voter.LastName)
         return jsonify({'voter': voterName, 'truthy': True})
     else:
         return jsonify({'voter': False, 'truthy': False })

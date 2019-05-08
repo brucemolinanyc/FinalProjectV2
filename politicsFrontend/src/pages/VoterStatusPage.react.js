@@ -43,6 +43,7 @@ class VoterStatusPage extends React.Component{
         })
         .then(response => response.json())
         .then(data => {
+            console.log(data)
             if (data.truthy === true){
                 this.setState({VoterName: data.voter})
             } else {
