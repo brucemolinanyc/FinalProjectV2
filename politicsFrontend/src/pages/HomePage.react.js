@@ -107,7 +107,12 @@ class Home extends React.Component {
       </Table.Col>
 
       <Table.Col>
-        <Link to={`/representative/${this.state.specificOfficialName[idx]}`}>Profile</Link>
+        <Link to={{
+          pathname: `/representative/${this.state.specificOfficialName[idx]}`,
+          state:{
+            social: this.state.officials[idx]
+          }
+        }}>Profile</Link>
       </Table.Col>
     
     </Table.Row>
