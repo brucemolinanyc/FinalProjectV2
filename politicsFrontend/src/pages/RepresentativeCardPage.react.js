@@ -65,16 +65,11 @@ class RepresentativeCardPage extends React.Component{
 
     render(){
       const social = this.state.social !== null && this.state.social.filter( el => {return el.type == "Facebook" || el.type =="Twitter"}).map((el)=> {return el.id})
-      // this.state.votes !== null && console.log(this.state.votes.bills.bill.slice(0,10))
       const votes = this.state.votes !== null && this.state.votes.bills.bill.slice(0,10)
-      const vote_results = votes && votes.map( (el) => {return `Bill #: ${el.billNumber} -  Title: ${el.title} - Stage:${el.stage} - Vote:${el.vote}`})
-   
-      // const data = vote_results && vote_results.forEach( (el) => 
-      //   <Grid.Col md={12}>
-      //    {el}
-      //   </Grid.Col>
-      // )
-      console.log(vote_results)
+      const vote_results = votes && votes.map( (el) => {
+        return <li> Bill #: {el.billNumber} -  Title: {el.title} - Stage: {el.stage} - <strong>Vote: {el.vote == "Y" ? 
+        <font color="green">Yay</font>:<font color="red">Nay</font>}</strong> </li>
+      })
 
       return(
             <SiteWrapper>
