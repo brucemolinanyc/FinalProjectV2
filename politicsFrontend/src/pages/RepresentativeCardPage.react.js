@@ -76,6 +76,15 @@ class RepresentativeCardPage extends React.Component{
       const enviro_positions = environment && environment.row.row.map( (el) =>{
         return <li>{el.rowText} <strong>{el.optionText === "Support" ? <font color="green">Support</font>:<font color="red">Oppose</font>}</strong></li>
     })
+    console.log(repro_rights)
+      const  repro_positions = repro_rights && repro_rights.row.row.map( (el) =>{
+        return <li>{el.rowText} <strong>{el.optionText === "Support" ? <font color="green">Support</font>:<font color="red">Oppose</font>}</strong></li>
+      })
+
+      const gun_positions = gun_rights && gun_rights.row.row.map( (el) => {
+        return <li>{el.rowText} <strong>{el.optionText === "Support" ? <font color="green">Support</font>:<font color="red">Oppose</font>}</strong></li>
+      })
+
       return(
             <SiteWrapper>
             <div className="my-3 my-md-5">
@@ -149,34 +158,28 @@ class RepresentativeCardPage extends React.Component{
 
 
                 <Grid.Row cards deck>
-                <Grid.Col md={4}>
+                  <Grid.Col md={4}> 
+                    <Card
+                      title="Recent Reproductive Rights Positions"
+                      body={ repro_positions && repro_positions }
+                      />  
+                  </Grid.Col>
                   
-                <Card
-  title="Recent Reproductive Rights Positions"
-  body={`Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam
-    deleniti fugit incidunt, iste, itaque minima neque pariatur
-    perferendis sed suscipit velit vitae voluptatem. A consequuntur,
-    deserunt eaque error nulla temporibus!`}
-/>
+                  <Grid.Col md={4}>
+                      <Card
+                      title="Recent Gun Control Positions"
+                      body={gun_positions && gun_positions}
+                      />
+                    </Grid.Col>
                   
-                </Grid.Col>
-                <Grid.Col md={4}>
-                <Card
-                title="Recent Gun Control Positions"
-                body={'test'}
-              />
-                </Grid.Col>
-                <Grid.Col md={4}>
-                <Card
-                title="Recent Environmental Positions"
-                body={enviro_positions && enviro_positions}
-              />                
-              </Grid.Col>
-              </Grid.Row>
-             
+                  <Grid.Col md={4}>
+                    <Card
+                    title="Recent Environmental Positions"
+                    body={enviro_positions && enviro_positions}
+                    />                
+                  </Grid.Col>
+              </Grid.Row>             
                 </Container>
-
-             
             </div>
 
             
