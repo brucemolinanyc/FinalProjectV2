@@ -73,9 +73,9 @@ class RepresentativeCardPage extends React.Component{
             <div className="my-3 my-md-5">
               <Container>
                 
-              <Grid.Row>
+              <Grid.Row className="text-left">
                   <Grid.Col lg={4}>
-                    <Profile
+                    <Profile 
                       name={ this.state.bio && `${this.state.bio.bio.candidate.firstName} ${this.state.bio.bio.candidate.lastName}`} 
                       backgroundURL="https://us.123rf.com/450wm/sharpner/sharpner1702/sharpner170200005/71130029-waving-american-flag.jpg?ver=6"
                       avatarURL={this.state.bio && this.state.bio.bio.candidate.photo}
@@ -104,7 +104,10 @@ class RepresentativeCardPage extends React.Component{
                         {this.state.bio && <p>Birthdate: {this.state.bio.bio.candidate['birthDate']}</p>}
                         {this.state.bio && <p>Birthplace: {this.state.bio.bio.candidate['birthPlace']}</p>}
                         {this.state.bio && <p>Family: {this.state.bio.bio.candidate['family']}</p>}
-                        {this.state.bio && <p>Education: {this.state.bio.bio.candidate.education.institution.map( (el) => {return el['fullText'] })}</p>}
+                        {this.state.bio && <p>School: {this.state.bio.bio.candidate.education.institution.map( (el) => {
+                          return (el['fullText'] + "\n") }
+                          )}</p>
+                        }
                      
                         </Card.Body>
                     </Card>
