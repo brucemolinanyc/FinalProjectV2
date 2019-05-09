@@ -73,16 +73,17 @@ class RepresentativeCardPage extends React.Component{
       const environment = this.state.npat && this.state.npat.npat.section[9]
       const repro_rights =  this.state.npat && this.state.npat.npat.section[10]
       const gun_rights = this.state.npat && this.state.npat.npat.section[11]
+      // console.log(this.state.npat && this.state.npat.npat.section[11].row.row)
       const enviro_positions = environment && environment.row.row.map( (el) =>{
-        return <li>{el.rowText} <strong>{el.optionText === "Support" ? <font color="green">Support</font>:<font color="red">Oppose</font>}</strong></li>
+        return <li>{el.rowText} <strong>{el.optionText.includes("Support") ? <font color="green">{el.optionText}</font>:<font color="red">{el.optionText}</font>}</strong></li>
     })
-    console.log(repro_rights)
       const  repro_positions = repro_rights && repro_rights.row.row.map( (el) =>{
-        return <li>{el.rowText} <strong>{el.optionText === "Support" ? <font color="green">Support</font>:<font color="red">Oppose</font>}</strong></li>
+        return <li>{el.rowText} <strong>{el.optionText.includes("Support") ? <font color="green">{el.optionText}</font>:<font color="red">{el.optionText}</font>}</strong></li>
       })
 
       const gun_positions = gun_rights && gun_rights.row.row.map( (el) => {
-        return <li>{el.rowText} <strong>{el.optionText === "Support" ? <font color="green">Support</font>:<font color="red">Oppose</font>}</strong></li>
+        console.log(el.rowText, el.optionText)
+        return <li>{el.rowText} <strong>{el.optionText.includes("Support") ? <font color="green">{el.optionText}</font>:<font color="red">{el.optionText}</font>}</strong></li>
       })
 
       return(
@@ -178,7 +179,8 @@ class RepresentativeCardPage extends React.Component{
                     body={enviro_positions && enviro_positions}
                     />                
                   </Grid.Col>
-              </Grid.Row>             
+              </Grid.Row>       
+              {console.log(this.state)}      
                 </Container>
             </div>
 
