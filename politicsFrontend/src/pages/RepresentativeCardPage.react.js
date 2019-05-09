@@ -20,7 +20,6 @@ class RepresentativeCardPage extends React.Component{
         const firstName = this.props.match.url.split(/[\s,"/"]+/)[2].trim()
         const lastName = this.props.match.url.split(" ").slice(-1).join(" ").trim()
         var candidateId = null
-        console.log(fullName, firstName, lastName)
         const candidate = fetch(`http://api.votesmart.org/Officials.getByLastname?key=e6c9d393d6cf259456bcb71e26922bcd&lastName=${lastName}&o=JSON`,{
             method: 'get',
             mode: "cors",
@@ -66,17 +65,28 @@ class RepresentativeCardPage extends React.Component{
 
     render(){
       const social = this.state.social !== null && this.state.social.filter( el => {return el.type == "Facebook" || el.type =="Twitter"}).map((el)=> {return el.id})
-      console.log(social)
+      // this.state.votes !== null && console.log(this.state.votes.bills.bill.slice(0,10))
+      const votes = this.state.votes !== null && this.state.votes.bills.bill.slice(0,10)
+      const vote_results = votes && votes.map( (el) => {return `Bill #: ${el.billNumber} -  Title: ${el.title} - Stage:${el.stage} - Vote:${el.vote}`})
+   
+      // const data = vote_results && vote_results.forEach( (el) => 
+      //   <Grid.Col md={12}>
+      //    {el}
+      //   </Grid.Col>
+      // )
+      console.log(vote_results)
+
       return(
             <SiteWrapper>
-            {console.log(this.state)}
             <div className="my-3 my-md-5">
               <Container>
                 
               <Grid.Row className="text-left">
                   <Grid.Col lg={4}>
                     <Profile 
-                      name={ this.state.bio && `${this.state.bio.bio.candidate.firstName} ${this.state.bio.bio.candidate.lastName}`} 
+                      name={ 
+                        this.state.bio && `${this.state.bio.bio.candidate.firstName} ${this.state.bio.bio.candidate.lastName}         
+                      ${this.state.bio.bio.office.parties} - ${this.state.bio.bio.office.title}`  }  
                       backgroundURL="https://us.123rf.com/450wm/sharpner/sharpner1702/sharpner170200005/71130029-waving-american-flag.jpg?ver=6"
                       avatarURL={this.state.bio && this.state.bio.bio.candidate.photo}
                     >
@@ -108,66 +118,30 @@ class RepresentativeCardPage extends React.Component{
                           return (el['fullText'] + "\n") }
                           )}</p>
                         }
-                     
                         </Card.Body>
                     </Card>
                     
                     <Card className="card">
-                      <Card.Body>
-                        <Card.Title>Edit Profile</Card.Title>
+                    <Card.Header>
+                      Recent Votes
+                    </Card.Header>   
+                      <Card.Body>               
                         <Grid.Row>
-                          <Grid.Col md={5}>
-                           test md 5
-                           <Card>
-                           <Card.Body>
-                             <h1>test</h1>
-                  
-                             
-                           </Card.Body>
-                         </Card>
-                          </Grid.Col>
-
-                          <Grid.Col sm={6} md={3}>
-                           test md 3
-                          </Grid.Col>
-
-                          <Grid.Col sm={6} md={4}>
-                          test md 4
-                          </Grid.Col>
-
-                          <Grid.Col sm={6} md={6}>
-                          test md 6
-                          </Grid.Col>
-
-                          <Grid.Col sm={6} md={6}>
-                           test md 6
-                          </Grid.Col>
-
-                          <Grid.Col md={12}>
-                           test md 12
-                          </Grid.Col>
-
-                          <Grid.Col sm={6} md={4}>
-                           test md 4 
-                          </Grid.Col>
+                            <Grid.Col md={12}>
+                                {vote_results && vote_results[0]}
+                              </Grid.Col>
+                              <Grid.Col md={12}>
+                              {vote_results && vote_results[1]}
+                            </Grid.Col><Grid.Col md={12}>
+                            {vote_results && vote_results[2]}
+                          </Grid.Col><Grid.Col md={12}>
+                          {vote_results && vote_results[3]}
+                        </Grid.Col><Grid.Col md={12}>
+                        {vote_results && vote_results[4]}
+                      </Grid.Col>
                           
-                          <Grid.Col sm={6} md={3}>
-                          test md 3 
-                          </Grid.Col>
-                          
-                          <Grid.Col md={5}>
-                           test md 5
-                          </Grid.Col>
-                          
-                          <Grid.Col md={12}>
-                           test md 12
-                          </Grid.Col>
                         </Grid.Row>
                       </Card.Body>
-                      
-                      <Card.Footer >
-                       test
-                      </Card.Footer>
                     </Card>
                   </Grid.Col>
                 </Grid.Row>
