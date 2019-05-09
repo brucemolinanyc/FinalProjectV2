@@ -70,7 +70,12 @@ class RepresentativeCardPage extends React.Component{
         return <li> Bill #: {el.billNumber} -  Title: {el.title} - Stage: {el.stage} - <strong>Vote: {el.vote == "Y" ? 
         <font color="green">Yay</font>:<font color="red">Nay</font>}</strong> </li>
       })
-
+      const environment = this.state.npat && this.state.npat.npat.section[9]
+      const repro_rights =  this.state.npat && this.state.npat.npat.section[10]
+      const gun_rights = this.state.npat && this.state.npat.npat.section[11]
+      const enviro_positions = environment && environment.row.row.map( (el) =>{
+        return <li>{el.rowText} <strong>{el.optionText === "Support" ? <font color="green">Support</font>:<font color="red">Oppose</font>}</strong></li>
+    })
       return(
             <SiteWrapper>
             <div className="my-3 my-md-5">
@@ -147,7 +152,7 @@ class RepresentativeCardPage extends React.Component{
                 <Grid.Col md={4}>
                   
                 <Card
-  title="Reproductive Rights"
+  title="Recent Reproductive Rights Positions"
   body={`Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam
     deleniti fugit incidunt, iste, itaque minima neque pariatur
     perferendis sed suscipit velit vitae voluptatem. A consequuntur,
@@ -157,22 +162,16 @@ class RepresentativeCardPage extends React.Component{
                 </Grid.Col>
                 <Grid.Col md={4}>
                 <Card
-                title="Gun Control"
-                body={`Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam
-                  deleniti fugit incidunt, iste, itaque minima neque pariatur
-                  perferendis sed suscipit velit vitae voluptatem. A consequuntur,
-                  deserunt eaque error nulla temporibus!`}
+                title="Recent Gun Control Positions"
+                body={'test'}
               />
-                  {console.log(this.state.npat, this.state.ratings)}
                 </Grid.Col>
                 <Grid.Col md={4}>
                 <Card
-                title="The Environment"
-                body={`Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam
-                  deleniti fugit incidunt, iste, itaque minima neque pariatur
-                  perferendis sed suscipit velit vitae voluptatem. A consequuntur,
-                  deserunt eaque error nulla temporibus!`}
-              />                </Grid.Col>
+                title="Recent Environmental Positions"
+                body={enviro_positions && enviro_positions}
+              />                
+              </Grid.Col>
               </Grid.Row>
              
                 </Container>
