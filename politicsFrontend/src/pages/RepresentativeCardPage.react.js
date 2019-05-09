@@ -106,7 +106,7 @@ class RepresentativeCardPage extends React.Component{
                       </Card.Header>
 
                       <Card.Body className="bio">
-                        {this.state.bio && <p>Birthdate: {this.state.bio.bio.candidate['birthDate']}</p>}
+                        {this.state.bio && <p> Birthdate: {this.state.bio.bio.candidate['birthDate']}</p>}
                         {this.state.bio && <p>Birthplace: {this.state.bio.bio.candidate['birthPlace']}</p>}
                         {this.state.bio && <p>Family: {this.state.bio.bio.candidate['family']}</p>}
                         {this.state.bio && <p>School: {this.state.bio.bio.candidate.education.institution.map( (el) => {
@@ -145,17 +145,34 @@ class RepresentativeCardPage extends React.Component{
 
                 <Grid.Row cards deck>
                 <Grid.Col md={4}>
-                  <Card body="Short content" />
+                  
+                <Card
+  title="Reproductive Rights"
+  body={`Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam
+    deleniti fugit incidunt, iste, itaque minima neque pariatur
+    perferendis sed suscipit velit vitae voluptatem. A consequuntur,
+    deserunt eaque error nulla temporibus!`}
+/>
+                  
                 </Grid.Col>
                 <Grid.Col md={4}>
-                  <Card
-                    body={`Extra long content of card. Lorem ipsum dolor sit amet,
-                      consetetur sadipscing elitr`}
-                  />
+                <Card
+                title="Gun Control"
+                body={`Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam
+                  deleniti fugit incidunt, iste, itaque minima neque pariatur
+                  perferendis sed suscipit velit vitae voluptatem. A consequuntur,
+                  deserunt eaque error nulla temporibus!`}
+              />
+                  {console.log(this.state.npat, this.state.ratings)}
                 </Grid.Col>
                 <Grid.Col md={4}>
-                  <Card body="Short content" />
-                </Grid.Col>
+                <Card
+                title="The Environment"
+                body={`Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam
+                  deleniti fugit incidunt, iste, itaque minima neque pariatur
+                  perferendis sed suscipit velit vitae voluptatem. A consequuntur,
+                  deserunt eaque error nulla temporibus!`}
+              />                </Grid.Col>
               </Grid.Row>
              
                 </Container>
