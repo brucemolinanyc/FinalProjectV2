@@ -60,7 +60,8 @@ class LoginPage extends React.Component{
         }     
       })
     }}
-        render={({
+        render={
+          ({
           values,
           errors,
           touched,
@@ -68,7 +69,8 @@ class LoginPage extends React.Component{
           handleBlur,
           handleSubmit,
           isSubmitting
-        }) => (
+        }) => 
+        (
           <div>
           <TablerLoginPage
           onSubmit={handleSubmit}
@@ -77,9 +79,8 @@ class LoginPage extends React.Component{
           values={values}
           errors={errors}
           touched={touched}
+        
         />
-          <p className="login"><strong>Need an account? <a href="/register">Register</a>
-          </strong></p>
           </div>
        
           
@@ -90,6 +91,8 @@ class LoginPage extends React.Component{
   }
 }
 
+// <p className="login"><strong>Need an account? <a href="/register">Register</a>
+// </strong></p>
 
 
 export default LoginPage;

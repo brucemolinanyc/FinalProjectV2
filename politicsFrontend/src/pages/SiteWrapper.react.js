@@ -54,13 +54,13 @@ const navBarItems: Array<navItem> = [
     LinkComponent: withRouter(NavLink),
     useExact: true
   },
-  {
-    value: "My Profile",
-    to: "/profile",
-    icon: "aperture",
-    LinkComponent: withRouter(NavLink),
-    useExact: true
-  }
+  // {
+  //   value: "My Profile",
+  //   to: "/profile",
+  //   icon: "aperture",
+  //   LinkComponent: withRouter(NavLink),
+  //   useExact: true
+  // }
 ];
 
 const accountDropdownProps = {
@@ -68,8 +68,7 @@ const accountDropdownProps = {
   options: [
     { icon: "user", value: "Profile" },
     { isDivider: true },
-    // { icon: "help-circle", value: "Need help?" },
-    { icon: "log-out", value: "Sign out" }
+    { icon: "log-out", value: "Sign out"}
   ]
 };
 
